@@ -39,13 +39,13 @@ pipeline{
             }
         }
 
-		stage('Static Code Analysis') {
-			steps{
-				sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:adnmensajeria.envio-eduardo.villamizar',
-				sonarName:'CeibaADN-ADNMensajeria(eduardo.villamizar)',
-				sonarPathProperties:'./sonar-project.properties')
-			}
+	stage('Static Code Analysis') {
+		steps{
+			sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:adnmensajeria.envio-eduardo.villamizar',
+			sonarName:'CeibaADN-ADNMensajeria(eduardo.villamizar)',
+			sonarPathProperties:'./sonar-project.properties')
 		}
+	}
 
         stage('Build'){
             steps{
