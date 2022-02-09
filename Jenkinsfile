@@ -27,7 +27,7 @@ pipeline{
                     gitTool: 'Default' ,
                     submoduleCfg: [],
                     userRemoteConfigs: [[credentialsId: 'GitHub_AndresEduVillamizar',
-                        url: 'https://github.com/AndresEduVillamizar/ADNMensajeria/tree/master/java-arquitectura-hexagonal']]])
+                        url: 'https://github.com/AndresEduVillamizar/Envio']]])
                 }
         }
         stage('Compilacion y Test Unitarios'){
