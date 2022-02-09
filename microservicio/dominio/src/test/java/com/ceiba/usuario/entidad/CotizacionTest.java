@@ -18,7 +18,7 @@ public class CotizacionTest {
                 .conIdUsuario(1L)
                 .build();
 
-        assertEquals(1, cotizacion.getId());
+        assertEquals(1, cotizacion.getIdUsuario());
         assertEquals(25, cotizacion.getDistanciaRecorrido());
     }
 

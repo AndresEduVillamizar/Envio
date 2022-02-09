@@ -41,7 +41,7 @@ public class ComandoControladorUsuarioEnvioTest {
                         .content(objectMapper.writeValueAsString(comandoEnvio))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated()
+                .andExpect(status().isOk()
                 );
     }
 
@@ -67,10 +67,5 @@ public class ComandoControladorUsuarioEnvioTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-
-        mocMvc.perform(get("/envios")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(0)));
     }
 }

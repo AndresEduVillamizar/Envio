@@ -2,6 +2,8 @@ package com.ceiba.usuario.servicio.testdatabuilder;
 
 import com.ceiba.usuario.comando.ComandoEnvio;
 
+import java.util.UUID;
+
 public class ComandoEnvioTestDataBuilder {
 
     private Long id;
@@ -10,7 +12,7 @@ public class ComandoEnvioTestDataBuilder {
     private boolean premium;
 
     public ComandoEnvioTestDataBuilder(){
-        nombre="test";
+        nombre= UUID.randomUUID().toString();
         clave="1234";
         premium = true;
     }
