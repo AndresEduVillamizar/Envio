@@ -3,7 +3,7 @@ package com.ceiba.usuario.entidad;
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.usuario.modelo.entidad.UsuarioEnvio;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioEnvioTestDataBuilder;
+import com.ceiba.usuario.servicio.testdatabuilder.EnvioTestDataBuilder;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +13,7 @@ public class UsuarioEnvioTest {
     @Test
     void deberiaCrearElEnvioCorrectamente() {
 
-        UsuarioEnvio usuarioEnvio = new UsuarioEnvioTestDataBuilder()
+        UsuarioEnvio usuarioEnvio = new EnvioTestDataBuilder()
                 .conId(1L)
                 .build();
 
@@ -26,12 +26,12 @@ public class UsuarioEnvioTest {
     @Test
     void deberiaFallarSinNombre() {
 
-        UsuarioEnvioTestDataBuilder usuarioEnvioTestDataBuilder = new UsuarioEnvioTestDataBuilder()
+        EnvioTestDataBuilder envioTestDataBuilder = new EnvioTestDataBuilder()
                 .conNombre(null)
                 .conId(1L);
 
         BasePrueba.assertThrows(() -> {
-                    usuarioEnvioTestDataBuilder.build();
+                    envioTestDataBuilder.build();
                 }, ExcepcionValorObligatorio.class, "Se requiere ingresar el nombre del usuario"
         );
     }
@@ -39,12 +39,12 @@ public class UsuarioEnvioTest {
     @Test
     void deberiaFallarSinClave(){
 
-        UsuarioEnvioTestDataBuilder usuarioEnvioTestDataBuilder = new UsuarioEnvioTestDataBuilder()
+        EnvioTestDataBuilder envioTestDataBuilder = new EnvioTestDataBuilder()
                 .conId(1L)
                 .conClave(null);
 
         BasePrueba.assertThrows(() -> {
-                    usuarioEnvioTestDataBuilder.build();
+                    envioTestDataBuilder.build();
                 }, ExcepcionValorObligatorio.class, "Se requiere ingresar un contraseña"
         );
 

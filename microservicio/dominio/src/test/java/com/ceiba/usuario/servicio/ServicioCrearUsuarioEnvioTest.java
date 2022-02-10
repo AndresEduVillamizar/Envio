@@ -4,7 +4,7 @@ import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.usuario.modelo.entidad.UsuarioEnvio;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuarioEnvio;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioEnvioTestDataBuilder;
+import com.ceiba.usuario.servicio.testdatabuilder.EnvioTestDataBuilder;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -14,7 +14,7 @@ public class ServicioCrearUsuarioEnvioTest {
 
     @Test
     void deberiaCrearDeManeraExitosa() {
-        UsuarioEnvio usuarioEnvio = new UsuarioEnvioTestDataBuilder().build();
+        UsuarioEnvio usuarioEnvio = new EnvioTestDataBuilder().build();
         RepositorioUsuarioEnvio repositorioUsuarioEnvio = Mockito.mock(RepositorioUsuarioEnvio.class);
         Mockito.when(repositorioUsuarioEnvio.existe(Mockito.anyString())).thenReturn(false);
         Mockito.when(repositorioUsuarioEnvio.crear(usuarioEnvio)).thenReturn(11L);
@@ -28,7 +28,7 @@ public class ServicioCrearUsuarioEnvioTest {
 
     @Test
     void deberiaLanzarUnaExcepcionCuandoValideLaExistencia() {
-        UsuarioEnvio usuarioEnvio = new UsuarioEnvioTestDataBuilder().build();
+        UsuarioEnvio usuarioEnvio = new EnvioTestDataBuilder().build();
         RepositorioUsuarioEnvio repositorioUsuarioEnvio = Mockito.mock(RepositorioUsuarioEnvio.class);
         Mockito.when(repositorioUsuarioEnvio.existe(Mockito.anyString())).thenReturn(true);
 
