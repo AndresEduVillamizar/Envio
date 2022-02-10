@@ -8,7 +8,7 @@ public class ComandoCotizacionTestDataBuilder {
     private float distanciaRecorrido;
 
     public ComandoCotizacionTestDataBuilder(){
-        id=100L;
+        id=1L;
         distanciaRecorrido=20;
     }
 
