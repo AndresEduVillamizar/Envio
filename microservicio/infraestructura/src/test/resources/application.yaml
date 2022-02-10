@@ -2,7 +2,7 @@ spring:
    datasource:
       driver-class-name: org.h2.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: jdbc:h2:~/memtestdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE
+      jdbcUrl: jdbc:h2:~/metestdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE
       username: sa
       password:
       hikari:
