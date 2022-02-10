@@ -2,35 +2,35 @@ package com.ceiba.usuario.servicio.testdatabuilder;
 
 import com.ceiba.usuario.modelo.entidad.UsuarioEnvio;
 
-public class EnvioTestDataBuilder {
+public class UsuarioEnvioTestDataBuilder {
 
     private Long id;
     private String nombre;
     private String clave;
     private boolean premium;
 
-    public EnvioTestDataBuilder(){
+    public UsuarioEnvioTestDataBuilder(){
         nombre="NombreEnvio";
         clave="password";
         premium = true;
     }
 
-    public EnvioTestDataBuilder conNombre(String nombre){
+    public UsuarioEnvioTestDataBuilder conNombre(String nombre){
         this.nombre=nombre;
         return this;
     }
 
-    public EnvioTestDataBuilder conClave(String clave){
+    public UsuarioEnvioTestDataBuilder conClave(String clave){
         this.clave=clave;
         return this;
     }
 
-    public EnvioTestDataBuilder esPremium(boolean premium){
+    public UsuarioEnvioTestDataBuilder esPremium(boolean premium){
         this.premium=premium;
         return this;
     }
 
-    public EnvioTestDataBuilder conId(Long id){
+    public UsuarioEnvioTestDataBuilder conId(Long id){
         this.id=id;
         return this;
     }
