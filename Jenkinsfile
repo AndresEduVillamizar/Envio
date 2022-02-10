@@ -27,36 +27,35 @@ pipeline{
                     gitTool: 'Default' ,
                     submoduleCfg: [],
                     userRemoteConfigs: [[credentialsId: 'GitHub_AndresEduVillamizar',
-                        url: 'https://github.com/AndresEduVillamizar/Envio']]])
+                        url: 'https://github.com/AndresEduVillamizar/Envio.git']]])
                 }
         }
         stage('Compilacion y Test Unitarios'){
             steps {
                 echo '------------>Test Backend<------------'
                 sh 'chmod +x ./microservicio/gradlew'
-                sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
-                sh './microservicio/gradlew --b ./microservicio/build.gradle test'
+                sh './apiservicio/gradlew --b ./apiservicio/build.gradle clean'
+                sh './apiservicio/gradlew --b ./apiservicio/build.gradle test'
             }
         }
 
-	    stage('Static Code Analysis') {
-		    steps{
-			    sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:adnmensajeria.envio-eduardo.villamizar',
-			    sonarName:'CeibaADN-ADNMensajeria(eduardo.villamizar)',
-			    sonarPathProperties:'./sonar-project.properties')
-		    }
-	    }
+		stage('Static Code Analysis') {
+			steps{
+				sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:proyectoadn.envio-eduardo.villamizar',
+				sonarName:'CeibaADN-ProyectoADNEnvio-eduardo.villamizar',
+				sonarPathProperties:'./sonar-project.properties')
+			}
+		}
 
         stage('Build'){
             steps{
                 echo "------------>Compilación backend<------------"
                     sh 'chmod +x ./microservicio/gradlew'
-                    sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
-                    sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
+                    sh './apiservicio/gradlew --b ./apiservicio/build.gradle clean'
+                    sh './apiservicio/gradlew --b ./apiservicio/build.gradle build -x test'
                 }
             }
         }
-    }
 
     post {
         failure {
