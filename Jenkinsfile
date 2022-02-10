@@ -1,20 +1,3 @@
-@Library('ceiba-jenkins-library')
-pipeline {
-  agent {
-    label 'Slave_Induccion'
-  }
-
-  options {
-    	buildDiscarder(logRotator(numToKeepStr: '3'))
- 	disableConcurrentBuilds()
-  }
-
-  //Una sección que define las herramientas “preinstaladas” en Jenkins
-  tools {
-    jdk 'JDK8_Centos' //Verisión preinstalada en la Configuración del Master
-  }
-
-  stages{
 @Library('ceiba-jenkins-library') _
 pipeline{
 
