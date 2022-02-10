@@ -56,16 +56,7 @@ pipeline{
                 }
             }
         }
-
-        stage('Test'){
-            steps{
-                echo "------------>Compilación backend<------------"
-                sh 'chmod +x ./microservicio/gradlew'
-                sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
-                sh './microservicio/gradlew --b ./microservicio/build.gradle test'
-                }
-            }
-        }
+    }
 
     post {
         failure {
