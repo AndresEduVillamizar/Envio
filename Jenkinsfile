@@ -15,7 +15,25 @@ pipeline {
   }
 
   stages{
-     stage('Checkout') {
+@Library('ceiba-jenkins-library') _
+pipeline{
+
+    agent {
+        label 'Slave_Induccion'
+    }
+
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '3'))
+        disableConcurrentBuilds()
+    }
+
+    tools {
+        jdk 'JDK8_Centos'
+    }
+
+    stages{
+        stage('Checkout') {
             steps {
                 echo '------------>Checkout desde Git Microservicio<------------'
                 checkout([
@@ -29,56 +47,54 @@ pipeline {
                         url: 'https://github.com/AndresEduVillamizar/Envio']]])
                 }
         }
-    
-    	stage('Compile & Unit Tests') {
-		steps{
-			echo "------------>compile & Unit Tests<------------"
-			sh 'chmod +x gradlew'
-			sh './gradlew --b ./build.gradle clean'
-			sh './gradlew --b ./build.gradle test'
-		}
-	}
+        stage('Compilacion y Test Unitarios'){
+            steps {
+                echo '------------>Test Backend<------------'
+                sh 'chmod +x ./microservicio/gradlew'
+                sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+                sh './microservicio/gradlew --b ./microservicio/build.gradle test'
+            }
+        }
 
+	    stage('Static Code Analysis') {
+		    steps{
+			    sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:adnmensajeria.envio-eduardo.villamizar',
+			    sonarName:'CeibaADN-ADNMensajeria(eduardo.villamizar)',
+			    sonarPathProperties:'./sonar-project.properties')
+		    }
+	    }
 
-    stage('Static Code Analysis') {
-    		steps{
-        		sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:proyectoADN.envio-eduardo.villamizar', 
-        		sonarName:'CeibaADN-ProyectoADNEnvio(eduardo.villamizar)', 
-        		sonarPathProperties:'./sonar-project.properties')
-    		}
-	} 
+        stage('Build'){
+            steps{
+                echo "------------>Compilación backend<------------"
+                    sh 'chmod +x ./microservicio/gradlew'
+                    sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+                    sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
+                }
+            }
+        }
 
+        stage('Test'){
+            steps{
+                echo "------------>Compilación backend<------------"
+                sh 'chmod +x ./microservicio/gradlew'
+                sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+                sh './microservicio/gradlew --b ./microservicio/build.gradle test'
+                }
+            }
+        }
 
-    stage('Build') {
-		steps{
-			echo "------------>Build<------------"
-			//Construir sin tarea test que se ejecutó previamente
-			sh './gradlew --b ./build.gradle build -x test'
-	}
-}
- 
-  }
-
-  post {
-    always {
-      echo 'This will always run'
+    post {
+        failure {
+            echo 'This will run only if failed'
+            mail(
+                to: 'eduardo.villamizar@ceiba.com.co',
+                body:"Something is wrong with ${env.BUILD_URL}",
+                subject: "Failed Pipeline:${currentBuild.fullDisplayName}"
+            )
+        }
+        success {
+            echo 'This will run only if successful'
+        }
     }
-    success {
-	echo 'This will run only if successful'
-	junit 'build/test-results/test/*.xml' //RUTA RELATIVA DE LOS ARCHIVOS .XML
-	}
-
-    failure {
-	echo 'This will run only if failed'
-	mail (to: 'eduardo.villamizar@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
-	}
-
-    unstable {
-      echo 'This will run only if the run was marked as unstable'
-    }
-    changed {
-      echo 'This will run only if the state of the Pipeline has changed'
-      echo 'For example, if the Pipeline was previously failing but is now successful'
-    }
-  }
 }
