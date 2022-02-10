@@ -6,7 +6,7 @@ import com.ceiba.usuario.puerto.repositorio.RepositorioUsuarioEnvio;
 
 public class ServicioCrearUsuarioEnvio {
 
-    private final String SE_ENCUENTRA_REGISTRADO="Nombre de usuario se encuentra registrado";
+    private static final String SE_ENCUENTRA_REGISTRADO="Nombre de usuario se encuentra registrado";
 
     private final RepositorioUsuarioEnvio repositorioUsuarioEnvio;
 

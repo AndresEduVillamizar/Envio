@@ -9,9 +9,9 @@ public class ServicioGenerarCotizacion {
 
     private final RepositorioCotizacion repositorioCotizacion;
 
-    private final int VALOR_FIN_DE_SEMANA = 1500;
-    private final int VALOR_NO_FIN_DE_SEMANA = 1000;
-    private final double DESCUENTO_PREMIUM = 0.75;
+    private static final int VALOR_FIN_DE_SEMANA = 1500;
+    private static final int VALOR_NO_FIN_DE_SEMANA = 1000;
+    private static final double DESCUENTO_PREMIUM = 0.75;
 
 
     public ServicioGenerarCotizacion(RepositorioCotizacion repositorioCotizacion) {
