@@ -34,8 +34,8 @@ pipeline{
             steps {
                 echo '------------>Test Backend<------------'
                 sh 'chmod +x ./microservicio/gradlew'
-                sh './apiservicio/gradlew --b ./apiservicio/build.gradle clean'
-                sh './apiservicio/gradlew --b ./apiservicio/build.gradle test'
+                sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+                sh './microservicio/gradlew --b ./microservicio/build.gradle test'
             }
         }
 
@@ -51,8 +51,8 @@ pipeline{
             steps{
                 echo "------------>Compilación backend<------------"
                     sh 'chmod +x ./microservicio/gradlew'
-                    sh './apiservicio/gradlew --b ./apiservicio/build.gradle clean'
-                    sh './apiservicio/gradlew --b ./apiservicio/build.gradle build -x test'
+                    sh './microservicio/gradlew --b ./microservicio/build.gradle clean'
+                    sh './microservicio/gradlew --b ./microservicio/build.gradle build -x test'
                 }
             }
         }
