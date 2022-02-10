@@ -7,8 +7,8 @@ import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 @Getter
 public class UsuarioEnvio {
 
-    private final String SE_DEBE_INGRESAR_NOMBRE= "Se requiere ingresar el nombre del usuario";
-    private final String SE_REQUIERE_CONTRASENA = "Se requiere ingresar un contraseña";
+    private static final String SE_DEBE_INGRESAR_NOMBRE= "Se requiere ingresar el nombre del usuario";
+    private static final String SE_REQUIERE_CONTRASENA = "Se requiere ingresar un contraseña";
 
     private Long id;
     private String nombre;

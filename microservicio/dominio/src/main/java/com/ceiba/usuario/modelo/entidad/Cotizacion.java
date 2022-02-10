@@ -7,13 +7,13 @@ import static com.ceiba.dominio.ValidadorArgumento.*;
 @Getter
 public class Cotizacion {
 
-    private final String NO_SUPERA_DISTANCIA_MINIMA="Se requiere una distancia minima de 5";
-    private final String SUPERA_DISTANCIA_MAXIMA="Se sobrepaso el maximo de distancia el cual es de 40";
-    private final String SE_REQUIERE_DISTANCIA = "Se requiere ingresar la distancia";
-    private final String SE_REQUIERE_ID_USUARIO = "Se requiere ingresar un id Usuario";
+    private static final String NO_SUPERA_DISTANCIA_MINIMA="Se requiere una distancia minima de 5";
+    private static final String SUPERA_DISTANCIA_MAXIMA="Se sobrepaso el maximo de distancia el cual es de 40";
+    private static final String SE_REQUIERE_DISTANCIA = "Se requiere ingresar la distancia";
+    private static final String SE_REQUIERE_ID_USUARIO = "Se requiere ingresar un id Usuario";
 
-    private final float DISTANCIA_MINIMA = 5;
-    private final float DISTANCIA_MAXIMA = 40;
+    private static final float DISTANCIA_MINIMA = 5;
+    private static final float DISTANCIA_MAXIMA = 40;
 
     private Long idUsuario;
     private float distanciaRecorrido;
