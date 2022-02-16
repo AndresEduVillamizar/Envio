@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/envios")
 @Api(tags = { "Controlador comando envios"})
+@CrossOrigin(origins = "http://localhost:4200")
 public class ComandoControladorEnvio {
 
     private final ManejadorCrearUsuarioEnvio manejadorCrearUsuarioEnvio;
