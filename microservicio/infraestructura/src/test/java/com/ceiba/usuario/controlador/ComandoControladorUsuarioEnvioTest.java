@@ -44,7 +44,6 @@ public class ComandoControladorUsuarioEnvioTest {
                 .andExpect(status().isOk()
                 );
     }
-/*
     @Test
     void deberiaGenerarUnaCotizacion() throws Exception {
         ComandoCotizacion comandoCotizacion = new ComandoCotizacionTestDataBuilder().build();
@@ -57,7 +56,6 @@ public class ComandoControladorUsuarioEnvioTest {
         ;
 
     }
-*/
 
     @Test
     void deberiaEliminarUnUsuario() throws Exception {

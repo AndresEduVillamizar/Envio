@@ -29,7 +29,7 @@ public class ComandoControladorEnvio {
     }
 
     @PostMapping
-    @ApiOperation("Crear Mensajeria")
+    @ApiOperation("Generar Cotizacion")
     public ComandoRespuesta<Double> generarCotizacion(@RequestBody ComandoCotizacion comandoCotizacion) {
         return manejadorGeneradorCotizacion.ejecutar(comandoCotizacion);
     }
@@ -41,7 +41,7 @@ public class ComandoControladorEnvio {
     }
 
     @PostMapping("/registro")
-    @ApiOperation("Crear Usuario")
+    @ApiOperation("Crear Usuario Envio")
     public ComandoRespuesta<Long> crearUsuario(@RequestBody ComandoEnvio comandoEnvio) {
         return manejadorCrearUsuarioEnvio.ejecutar(comandoEnvio);
     }

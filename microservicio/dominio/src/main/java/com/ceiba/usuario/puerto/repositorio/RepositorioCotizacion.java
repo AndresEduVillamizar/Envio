@@ -4,5 +4,5 @@ import com.ceiba.usuario.modelo.entidad.Cotizacion;
 
 public interface RepositorioCotizacion {
 
-    Boolean isPremium(Cotizacion cotizacion);
+    Boolean isPremium(Long idUsuario);
 }

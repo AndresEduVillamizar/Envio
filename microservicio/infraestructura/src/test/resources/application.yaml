@@ -1,8 +1,9 @@
 spring:
    datasource:
+      baseline-on-migrate: true
       driver-class-name: org.h2.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: jdbc:h2:~/memorytestdbH2;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE
+      jdbcUrl: jdbc:h2:~/testdbH2;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE
       username: sa
       password:
       hikari:

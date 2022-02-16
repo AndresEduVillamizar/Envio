@@ -20,9 +20,9 @@ public class RepositorioCotizacionMysql implements RepositorioCotizacion {
     private static String sqlListarPremium;
 
     @Override
-    public Boolean isPremium(Cotizacion cotizacion) {
+    public Boolean isPremium(Long idUsuario) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", cotizacion.getIdUsuario());
+        paramSource.addValue("id", idUsuario);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlListarPremium,paramSource, Boolean.class);
     }

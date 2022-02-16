@@ -17,7 +17,7 @@ public class ServicioGenerarCotizacionTest {
         Cotizacion cotizacion = new CotizacionTestDataBuilder().build();
         RepositorioCotizacion repositorioCotizacion = Mockito.mock(RepositorioCotizacion.class);
         //Se indica no premium
-        Mockito.when(repositorioCotizacion.isPremium(cotizacion)).thenReturn(false);
+        Mockito.when(repositorioCotizacion.isPremium(cotizacion.getIdUsuario())).thenReturn(false);
 
         ServicioGenerarCotizacion servicioGenerarCotizacion = spy(new ServicioGenerarCotizacion(repositorioCotizacion));
         //Se indica que es fin de semana
@@ -35,7 +35,7 @@ public class ServicioGenerarCotizacionTest {
         Cotizacion cotizacion = new CotizacionTestDataBuilder().build();
         RepositorioCotizacion repositorioCotizacion = Mockito.mock(RepositorioCotizacion.class);
         //Se indica no premium
-        Mockito.when(repositorioCotizacion.isPremium(cotizacion)).thenReturn(false);
+        Mockito.when(repositorioCotizacion.isPremium(cotizacion.getIdUsuario())).thenReturn(false);
 
         ServicioGenerarCotizacion servicioGenerarCotizacion = spy(new ServicioGenerarCotizacion(repositorioCotizacion));
         //Se indica que es fin de semana
@@ -53,7 +53,7 @@ public class ServicioGenerarCotizacionTest {
         Cotizacion cotizacion = new CotizacionTestDataBuilder().build();
         RepositorioCotizacion repositorioCotizacion = Mockito.mock(RepositorioCotizacion.class);
         //Se indica no premium
-        Mockito.when(repositorioCotizacion.isPremium(cotizacion)).thenReturn(true);
+        Mockito.when(repositorioCotizacion.isPremium(cotizacion.getIdUsuario())).thenReturn(true);
 
         ServicioGenerarCotizacion servicioGenerarCotizacion = spy(new ServicioGenerarCotizacion(repositorioCotizacion));
         //Se indica que es fin de semana
@@ -71,7 +71,7 @@ public class ServicioGenerarCotizacionTest {
         Cotizacion cotizacion = new CotizacionTestDataBuilder().build();
         RepositorioCotizacion repositorioCotizacion = Mockito.mock(RepositorioCotizacion.class);
         //Se indica no premium
-        Mockito.when(repositorioCotizacion.isPremium(cotizacion)).thenReturn(true);
+        Mockito.when(repositorioCotizacion.isPremium(cotizacion.getIdUsuario())).thenReturn(true);
 
         ServicioGenerarCotizacion servicioGenerarCotizacion = spy(new ServicioGenerarCotizacion(repositorioCotizacion));
         //Se indica que es fin de semana
